@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 
-import position, { Alignment, Placement } from '../position'
+import position, { Alignment, Placement } from '../../utilities/position'
 
 interface Props {
   activator: React.Ref<HTMLDivElement>

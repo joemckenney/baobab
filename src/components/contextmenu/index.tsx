@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import RelativeBox from '../relative-box'
 
-import { Alignment, Placement } from '../position'
+import { Alignment, Placement } from '../../utilities/position'
 
 import Portal from '../portal'
 
@@ -34,7 +34,7 @@ const ContextMenu = ({ children }: Props) => {
             height: '1px',
             position: 'absolute',
             top: `${top}px`,
-            left: `${left}px`,
+            left: `${left}px`
           }}
           ref={ref}
         />

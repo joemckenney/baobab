@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './divider.module.css'
+//import styles from './divider.module.css'
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   orientation: 'vertical' | 'horizontal'
@@ -10,7 +10,7 @@ const Divider = ({ orientation, spacing, ...attrs }: Props) => {
   return (
     <div
       {...attrs}
-      className={styles.divider}
+      //className={styles.divider}
       data-orientation={orientation}
       data-spacing={spacing}
     />

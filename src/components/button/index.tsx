@@ -70,8 +70,6 @@ const Button = React.forwardRef(
   }
 )
 
-const StyledButton = styled.button`
-  background: var(
-`
+const StyledButton = styled.button``
 
 export default Button

@@ -1,0 +1,43 @@
+---
+name: Menu
+route: /menu
+---
+
+import { Playground } from 'docz'
+import Text from '../text/'
+import Menu from './'
+import MenuItem from './menu-item'
+import MenuDivider from './menu-divider'
+
+# Menu
+
+## Basic usage
+
+<Playground>
+  <Menu>
+    <MenuItem>
+      <Text color="muted">JoeJoeJoeJoeJoeJoeJoeJoe</Text>
+    </MenuItem>
+    <MenuItem>
+      <Text color="muted">Leah</Text>
+    </MenuItem>
+    <MenuDivider />
+    <MenuItem>
+      <Text color="muted">Baobab</Text>
+    </MenuItem>
+    <MenuItem>
+      <Text color="muted">Meeko</Text>
+    </MenuItem>
+    <MenuDivider />
+    <MenuItem>
+      <Text color="muted">Baobab</Text>
+    </MenuItem>
+    <MenuDivider />
+    <MenuItem>
+      <Text color="muted">Baobab</Text>
+    </MenuItem>
+    <MenuItem>
+      <Text color="muted">Baobab</Text>
+    </MenuItem>
+  </Menu>
+</Playground>

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './layout.module.css'
+//import styles from './layout.module.css'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
@@ -24,7 +24,7 @@ const Layout = React.forwardRef(
     return (
       <div
         {...attrs}
-        className={styles.layout}
+        //className={styles.layout}
         data-flex={flex}
         data-inset={inset}
         data-spacing={spacing}
