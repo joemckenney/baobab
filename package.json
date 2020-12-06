@@ -1,0 +1,28 @@
+{
+  "name": "baobab",
+  "description": "A design system named after my cat",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joemckenney/baobab.git"
+  },
+  "author": "joemckenney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joemckenney/baobab/issues"
+  },
+  "homepage": "https://github.com/joemckenney/baobab#readme",
+  "dependencies": {
+    "@types/styled-components": "^5.1.4",
+    "docz": "^2.3.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
+  }
+}
