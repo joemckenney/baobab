@@ -2,20 +2,13 @@ import styled from 'styled-components'
 
 import React from 'react'
 
-import { SizeKey } from '../../theme/types'
+import { FourDimensionalSizeProperty } from './types'
+import { cssFrom4DSizeProperty } from './util'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
-  inset?: //extract type defintion
-  | SizeKey
-    | [SizeKey, SizeKey]
-    | [SizeKey, SizeKey, SizeKey]
-    | [SizeKey, SizeKey, SizeKey, SizeKey]
-  spacing?: //extract type defintion
-  | SizeKey
-    | [SizeKey, SizeKey]
-    | [SizeKey, SizeKey, SizeKey]
-    | [SizeKey, SizeKey, SizeKey, SizeKey]
+  inset?: FourDimensionalSizeProperty
+  spacing?: FourDimensionalSizeProperty
   type?: 'vertical' | 'horizontal'
   flex?: 'initial' | 'static' | 'auto'
 }
@@ -47,19 +40,6 @@ const Layout = React.forwardRef(
   }
 )
 
-//extract
-const formSizeValues = (props, size) => {
-  if (!size) {
-    return 0
-  }
-
-  if (Array.isArray(size)) {
-    return size.map(s => props.theme.size[s]).join(' ')
-  }
-
-  return props.theme.size[size]
-}
-
 const StyledLayout = styled.div<Partial<Props>>`
   display: flex;
   overflow: auto;
@@ -81,10 +61,10 @@ const StyledLayout = styled.div<Partial<Props>>`
     }
   }};
 
-  padding: ${props => formSizeValues(props, props.inset)};
+  padding: ${props => cssFrom4DSizeProperty(props.theme, props.inset)};
 
   ${props => `& > * {
-      margin: ${props.spacing ? props.theme.size[props.spacing] : 0};
+      margin: ${cssFrom4DSizeProperty(props.theme, props.spacing)};
   }`};
 
   ${props => {
