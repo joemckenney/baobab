@@ -7,8 +7,7 @@
     "repository": "https://github.com/joemckenney/baobab",
     "native": false,
     "themeConfig": {},
-    "separator": "-",
-    "typescript": true
+    "separator": "-"
   },
   "entries": [
     {
