@@ -2,10 +2,20 @@ import styled from 'styled-components'
 
 import React from 'react'
 
+import { SizeKey } from '../../theme/types'
+
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
-  inset?: number
-  spacing?: number
+  inset?: //extract type defintion
+  | SizeKey
+    | [SizeKey, SizeKey]
+    | [SizeKey, SizeKey, SizeKey]
+    | [SizeKey, SizeKey, SizeKey, SizeKey]
+  spacing?: //extract type defintion
+  | SizeKey
+    | [SizeKey, SizeKey]
+    | [SizeKey, SizeKey, SizeKey]
+    | [SizeKey, SizeKey, SizeKey, SizeKey]
   type?: 'vertical' | 'horizontal'
   flex?: 'initial' | 'static' | 'auto'
 }
@@ -37,6 +47,19 @@ const Layout = React.forwardRef(
   }
 )
 
+//extract
+const formSizeValues = (props, size) => {
+  if (!size) {
+    return 0
+  }
+
+  if (Array.isArray(size)) {
+    return size.map(s => props.theme.size[s]).join(' ')
+  }
+
+  return props.theme.size[size]
+}
+
 const StyledLayout = styled.div<Partial<Props>>`
   display: flex;
   overflow: auto;
@@ -58,38 +81,11 @@ const StyledLayout = styled.div<Partial<Props>>`
     }
   }};
 
-  padding: ${props => {
-    if (!props.inset) {
-      return 0
-    }
+  padding: ${props => formSizeValues(props, props.inset)};
 
-    console.log(props.theme.size)
-    console.log(props.inset)
-
-    return props.theme.size[props.inset]
-  }};
-
-  ${props => `
-    & > * {
-      margin: ${
-        props.spacing === 0
-          ? '1px'
-          : props.spacing === 1
-          ? '2px'
-          : props.spacing === 2
-          ? '4px'
-          : props.spacing === 3
-          ? '8px'
-          : props.spacing === 4
-          ? '16px'
-          : props.spacing === 5
-          ? '32px'
-          : props.spacing === 5
-          ? '64px'
-          : 0
-      }
-    }
-  `};
+  ${props => `& > * {
+      margin: ${props.spacing ? props.theme.size[props.spacing] : 0};
+  }`};
 
   ${props => {
     switch (props.type) {

@@ -1,14 +1,13 @@
+export type ColorKey = 100 | 200 | 300 | 400 | 500 | 600
+
 export type Color = {
-  100: string
-  200: string
-  300: string
-  400: string
-  500: string
-  600: string
+  [key in ColorKey]: string
 }
 
+export type SizeKey = 0 | 1 | 2 | 3 | 4 | 5 | 6
+
 export type Size = {
-  [key: number]: string
+  [key in SizeKey]: string
 }
 
 export type ColorTheme = {

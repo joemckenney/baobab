@@ -40300,7 +40300,22 @@ var Layout = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.forwardRe
     type: type,
     ref: ref
   }), children);
-});
+}); //extract
+
+var formSizeValues = function formSizeValues(props, size) {
+  if (!size) {
+    return 0;
+  }
+
+  if (Array.isArray(size)) {
+    return size.map(function (s) {
+      return props.theme.size[s];
+    }).join(' ');
+  }
+
+  return props.theme.size[size];
+};
+
 var StyledLayout = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject(), "& > * {\n    flex: auto;\n    display: flex;\n  }", function (props) {
   switch (props.flex) {
     case 'auto':
@@ -40313,15 +40328,9 @@ var StyledLayout = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div
       return 'initial';
   }
 }, function (props) {
-  if (!props.inset) {
-    return 0;
-  }
-
-  console.log(props.theme.size);
-  console.log(props.inset);
-  return props.theme.size[props.inset];
+  return formSizeValues(props, props.inset);
 }, function (props) {
-  return "\n    & > * {\n      margin: " + (props.spacing === 0 ? '1px' : props.spacing === 1 ? '2px' : props.spacing === 2 ? '4px' : props.spacing === 3 ? '8px' : props.spacing === 4 ? '16px' : props.spacing === 5 ? '32px' : props.spacing === 5 ? '64px' : 0) + "\n    }\n  ";
+  return "& > * {\n      margin: " + (props.spacing ? props.theme.size[props.spacing] : 0) + ";\n  }";
 }, function (props) {
   switch (props.type) {
     case 'vertical':
