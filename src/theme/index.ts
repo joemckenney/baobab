@@ -1,3 +1,3 @@
-import { ThemeProvider } from './Provider'
+import { ThemeProvider } from './provider'
 
 export { ThemeProvider }

@@ -59,24 +59,14 @@ const StyledLayout = styled.div<Partial<Props>>`
   }};
 
   padding: ${props => {
-    switch (props.inset) {
-      case 0:
-        return '1px'
-      case 1:
-        return '2px'
-      case 2:
-        return '4px'
-      case 3:
-        return '8px'
-      case 4:
-        return '16px'
-      case 5:
-        return '32px'
-      case 5:
-        return '64px'
-      default:
-        return 0
+    if (!props.inset) {
+      return 0
     }
+
+    console.log(props.theme.size)
+    console.log(props.inset)
+
+    return props.theme.size[props.inset]
   }};
 
   ${props => `
