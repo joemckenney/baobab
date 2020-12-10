@@ -541,6 +541,74 @@
       ]
     },
     {
+      "key": "src/components/layout/index.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "layout",
+          "methods": [],
+          "props": {
+            "inset": {
+              "defaultValue": null,
+              "description": "",
+              "name": "inset",
+              "parent": {
+                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
+                "name": "Props"
+              },
+              "required": false,
+              "type": {
+                "name": "number | undefined"
+              }
+            },
+            "spacing": {
+              "defaultValue": null,
+              "description": "",
+              "name": "spacing",
+              "parent": {
+                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
+                "name": "Props"
+              },
+              "required": false,
+              "type": {
+                "name": "number | undefined"
+              }
+            },
+            "type": {
+              "defaultValue": {
+                "value": "horizontal"
+              },
+              "description": "",
+              "name": "type",
+              "parent": {
+                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
+                "name": "Props"
+              },
+              "required": false,
+              "type": {
+                "name": "\"horizontal\" | \"vertical\" | undefined"
+              }
+            },
+            "flex": {
+              "defaultValue": {
+                "value": "auto"
+              },
+              "description": "",
+              "name": "flex",
+              "parent": {
+                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
+                "name": "Props"
+              },
+              "required": false,
+              "type": {
+                "name": "\"initial\" | \"static\" | \"auto\" | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/components/menu/index.tsx",
       "value": [
         {
@@ -803,78 +871,32 @@
       ]
     },
     {
-      "key": "src/styles/themes/fruity/index.ts",
-      "value": []
-    },
-    {
       "key": "src/styles/themes/index.ts",
       "value": []
     },
     {
-      "key": "src/components/layout/index.tsx",
+      "key": "src/styles/themes/fruity/index.ts",
+      "value": []
+    },
+    {
+      "key": ".docz/src/gatsby-theme-docz/wrapper.js",
       "value": [
         {
           "description": "",
-          "displayName": "layout",
+          "displayName": "Wrapper",
           "methods": [],
-          "props": {
-            "inset": {
-              "defaultValue": null,
-              "description": "",
-              "name": "inset",
-              "parent": {
-                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
-                "name": "Props"
-              },
-              "required": false,
-              "type": {
-                "name": "number | undefined"
-              }
-            },
-            "spacing": {
-              "defaultValue": null,
-              "description": "",
-              "name": "spacing",
-              "parent": {
-                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
-                "name": "Props"
-              },
-              "required": false,
-              "type": {
-                "name": "number | undefined"
-              }
-            },
-            "type": {
-              "defaultValue": {
-                "value": "horizontal"
-              },
-              "description": "",
-              "name": "type",
-              "parent": {
-                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
-                "name": "Props"
-              },
-              "required": false,
-              "type": {
-                "name": "\"horizontal\" | \"vertical\" | undefined"
-              }
-            },
-            "flex": {
-              "defaultValue": {
-                "value": "auto"
-              },
-              "description": "",
-              "name": "flex",
-              "parent": {
-                "fileName": "/home/joe/repos/baobab/src/components/layout/index.tsx",
-                "name": "Props"
-              },
-              "required": false,
-              "type": {
-                "name": "\"initial\" | \"static\" | \"auto\" | undefined"
-              }
-            }
-          }
+          "actualName": "Wrapper"
+        }
+      ]
+    },
+    {
+      "key": "src/gatsby-theme-docz/wrapper.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Wrapper",
+          "methods": [],
+          "actualName": "Wrapper"
         }
       ]
     }
