@@ -34,7 +34,7 @@ const ContextMenu = ({ children }: Props) => {
             height: '1px',
             position: 'absolute',
             top: `${top}px`,
-            left: `${left}px`
+            left: `${left}px`,
           }}
           ref={ref}
         />

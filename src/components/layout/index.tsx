@@ -51,7 +51,7 @@ const StyledLayout = styled.div<Partial<Props>>`
     display: flex;
   }`}
 
-  flex: ${props => {
+  flex: ${(props) => {
     switch (props.flex) {
       case 'auto':
         return 'auto'
@@ -62,13 +62,13 @@ const StyledLayout = styled.div<Partial<Props>>`
     }
   }};
 
-  padding: ${props => cssFrom4DSizeProperty(props.theme, props.inset)};
+  padding: ${(props) => cssFrom4DSizeProperty(props.theme, props.inset)};
 
-  ${props => `& > * {
+  ${(props) => `& > * {
       margin: ${cssFrom4DSizeProperty(props.theme, props.spacing)};
   }`};
 
-  ${props => {
+  ${(props) => {
     switch (props.type) {
       case 'vertical':
         return `
