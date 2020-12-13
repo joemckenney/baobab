@@ -21,6 +21,9 @@ export type LineWidth = SizeKey | 'thin' | 'medium' | 'thick'
 export type LineColor = string
 
 export type BorderProperty =
+
+
+
   | LineStyle
   | [LineWidth, LineStyle]
   | [LineStyle, LineColor]
