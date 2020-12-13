@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 import React from 'react'
 
-import { FourDimensionalSizeProperty } from './types'
+import { BorderProperty, FourDimensionalSizeProperty } from './types'
 import { cssFrom4DSizeProperty } from './util'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   inset?: FourDimensionalSizeProperty
   spacing?: FourDimensionalSizeProperty
+  boder?: BorderProperty
   type?: 'vertical' | 'horizontal'
   flex?: 'initial' | 'static' | 'auto'
 }
