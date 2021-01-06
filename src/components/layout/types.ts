@@ -1,4 +1,4 @@
-import { SizeKey } from '../../theme/types'
+import { ColorTheme, ColorKey, SizeKey } from '../../theme/types'
 
 export type FourDimensionalSizeProperty =
   | SizeKey
@@ -24,8 +24,8 @@ export type LineColor = string
 export type BorderStyle =
   | `${LineStyle}`
   | `${LineWidth} ${LineStyle}`
-  | `${LineStyle} ${LineColor}`
-  | `${LineWidth} ${LineStyle} ${LineColor}`
+  | `${LineStyle} ${keyof ColorTheme}.${ColorKey}`
+  | `${LineWidth} ${LineStyle} ${keyof ColorTheme}.${ColorKey}`
 
 export interface BorderProps {
   border?: BorderStyle

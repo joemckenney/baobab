@@ -10,6 +10,8 @@ export type Size = {
   [key in SizeKey]: string
 }
 
+export type ColorThemeKey = keyof ColorTheme
+
 export type ColorTheme = {
   black: string
   white: string

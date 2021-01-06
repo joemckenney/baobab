@@ -16,7 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement>, BorderProps {
 const Layout = React.forwardRef(
   (
     {
-      border = 'none',
+      border,
       children,
       inset,
       spacing,
@@ -63,7 +63,17 @@ const StyledLayout = styled.div<Partial<Props>>`
     }
   }};
 
-  ${(props) => `border: ${cssFrom3DBorderProperty(props.theme, props.border)};`}
+  ${(props) => {
+    if (props.border) {
+      return `border: ${cssFrom3DBorderProperty(props.theme, props.border)};`
+    }
+    return `
+      border-top: ${cssFrom3DBorderProperty(props.theme, props.bt)};
+      border-right: ${cssFrom3DBorderProperty(props.theme, props.br)};
+      border-bottom: ${cssFrom3DBorderProperty(props.theme, props.bb)};
+      border-left: ${cssFrom3DBorderProperty(props.theme, props.bl)};
+    `
+  }}
 
   padding: ${(props) => cssFrom4DSizeProperty(props.theme, props.inset)};
 
@@ -100,14 +110,5 @@ const StyledLayout = styled.div<Partial<Props>>`
     }
   }}
 `
-/*
-  ${(props) => `border-top: ${cssFrom3DBorderProperty(props.theme, props.bt)}`}
-  ${(props) =>
-    `border-right: ${cssFrom3DBorderProperty(props.theme, props.br)}`}
-  ${(props) =>
-    `border-bottom: ${cssFrom3DBorderProperty(props.theme, props.bb)}`}
-  ${(props) => `border-left: ${cssFrom3DBorderProperty(props.theme, props.bl)}`}
-
-  */
 
 export default Layout

@@ -1,5 +1,7 @@
-import { Theme } from '../../theme/types'
+import { SizeKey, ColorKey, ColorThemeKey, Theme } from '../../theme/types'
 import { BorderStyle, FourDimensionalSizeProperty } from './types'
+
+import { color } from '../../styles/themes/fruity/color'
 
 export const cssFrom4DSizeProperty = (
   theme: Theme,
@@ -18,22 +20,55 @@ export const cssFrom3DBorderProperty = (
   theme: Theme,
   border?: BorderStyle
 ): string => {
+  /*
+   * style
+   * width style
+   * style color
+   * width style color
+   *
+   */
+
   if (!border) {
     return 'none'
   }
 
-  const b = border
+  const tokens = border
     .trim()
     .split(' ')
     .map((s) => s.trim())
 
-  if (b.length === 1) {
-    return border[0]
+  if (tokens.length === 1) {
+    return tokens.join(' ')
   }
 
-  if (!isNaN(b[0])) {
-    return [theme.size[b[0]], b[1], b[2]].filter((n) => n).join(' ')
+  if (tokens.length === 2) {
+    if (
+      !isNaN(tokens[0] as any) ||
+      ['thin', 'medium', 'thick'].includes(tokens[0])
+    ) {
+      return [theme.size[parseInt(tokens[0], 10) as SizeKey], tokens[1]].join(
+        ' '
+      )
+    } else {
+      const [color, key] = tokens[1].split('.')
+      return [
+        tokens[0],
+        theme.color[color as ColorThemeKey][(key as unknown) as ColorKey],
+      ].join(' ')
+    }
   }
 
-  return b.join(' ')
+  if (tokens.length === 3) {
+    const width = theme.size[parseInt(tokens[0], 10) as SizeKey]
+    const style = tokens[1]
+    const [color, key] = tokens[2].split('.')
+
+    return [
+      width,
+      style,
+      theme.color[color as ColorThemeKey][(key as unknown) as ColorKey],
+    ].join(' ')
+  }
+
+  return 'none'
 }
