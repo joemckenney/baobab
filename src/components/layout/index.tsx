@@ -2,14 +2,13 @@ import styled from 'styled-components'
 
 import React from 'react'
 
-import { BorderProperty, FourDimensionalSizeProperty } from './types'
-import { cssFrom4DSizeProperty } from './util'
+import { BorderProps, FourDimensionalSizeProperty } from './types'
+import { cssFrom3DBorderProperty, cssFrom4DSizeProperty } from './util'
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface Props extends React.HTMLAttributes<HTMLDivElement>, BorderProps {
   children?: React.ReactNode
   inset?: FourDimensionalSizeProperty
   spacing?: FourDimensionalSizeProperty
-  boder?: BorderProperty
   type?: 'vertical' | 'horizontal'
   flex?: 'initial' | 'static' | 'auto'
 }
@@ -17,6 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const Layout = React.forwardRef(
   (
     {
+      border = 'none',
       children,
       inset,
       spacing,
@@ -29,6 +29,7 @@ const Layout = React.forwardRef(
     return (
       <StyledLayout
         {...attrs}
+        border={border}
         flex={flex}
         inset={inset}
         spacing={spacing}
@@ -61,6 +62,8 @@ const StyledLayout = styled.div<Partial<Props>>`
         return 'initial'
     }
   }};
+
+  ${(props) => `border: ${cssFrom3DBorderProperty(props.theme, props.border)};`}
 
   padding: ${(props) => cssFrom4DSizeProperty(props.theme, props.inset)};
 
@@ -97,5 +100,14 @@ const StyledLayout = styled.div<Partial<Props>>`
     }
   }}
 `
+/*
+  ${(props) => `border-top: ${cssFrom3DBorderProperty(props.theme, props.bt)}`}
+  ${(props) =>
+    `border-right: ${cssFrom3DBorderProperty(props.theme, props.br)}`}
+  ${(props) =>
+    `border-bottom: ${cssFrom3DBorderProperty(props.theme, props.bb)}`}
+  ${(props) => `border-left: ${cssFrom3DBorderProperty(props.theme, props.bl)}`}
+
+  */
 
 export default Layout

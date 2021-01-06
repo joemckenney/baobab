@@ -17,14 +17,20 @@ export type LineStyle =
   | 'ridge'
   | 'inset'
   | 'outset'
+
 export type LineWidth = SizeKey | 'thin' | 'medium' | 'thick'
 export type LineColor = string
 
-export type BorderProperty =
+export type BorderStyle =
+  | `${LineStyle}`
+  | `${LineWidth} ${LineStyle}`
+  | `${LineStyle} ${LineColor}`
+  | `${LineWidth} ${LineStyle} ${LineColor}`
 
-
-
-  | LineStyle
-  | [LineWidth, LineStyle]
-  | [LineStyle, LineColor]
-  | [LineWidth, LineStyle, LineColor]
+export interface BorderProps {
+  border?: BorderStyle
+  bt?: BorderStyle
+  br?: BorderStyle
+  bb?: BorderStyle
+  bl?: BorderStyle
+}
