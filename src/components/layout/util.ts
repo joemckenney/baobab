@@ -6,28 +6,18 @@ import { color } from '../../styles/themes/fruity/color'
 export const cssFrom4DSizeProperty = (
   theme: Theme,
   size?: FourDimensionalSizeProperty
-): 0 | string => {
-  if (!size) {
-    return 0
-  }
-
-  return Array.isArray(size)
-    ? size.map((s) => theme.size[s]).join(' ')
-    : theme.size[size]
-}
+): 0 | string =>
+  size
+    ? size
+        .split(',')
+        .map((s) => theme.size[parseInt(s, 10) as SizeKey])
+        .join(' ')
+    : 0
 
 export const cssFrom3DBorderProperty = (
   theme: Theme,
   border?: BorderStyle
 ): string => {
-  /*
-   * style
-   * width style
-   * style color
-   * width style color
-   *
-   */
-
   if (!border) {
     return 'none'
   }
