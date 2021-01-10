@@ -2,12 +2,13 @@ import styled from 'styled-components'
 
 import React from 'react'
 
-import { BorderProps, FourDimensionalSizeProperty } from './types'
+import { BorderProps, FourDimensionalSizeProperty, OverFlow } from './types'
 import { cssFrom3DBorderProperty, cssFrom4DSizeProperty } from './util'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement>, BorderProps {
   children?: React.ReactNode
   inset?: FourDimensionalSizeProperty
+  overflow?: OverFlow
   spacing?: FourDimensionalSizeProperty
   type?: 'vertical' | 'horizontal'
   flex?: 'initial' | 'static' | 'auto'
@@ -19,6 +20,7 @@ const Layout = React.forwardRef(
       border,
       children,
       inset,
+      overflow,
       spacing,
       type = 'horizontal',
       flex = 'auto',
@@ -32,6 +34,7 @@ const Layout = React.forwardRef(
         border={border}
         flex={flex}
         inset={inset}
+        overflow={overflow}
         spacing={spacing}
         type={type}
         ref={ref}
@@ -62,6 +65,23 @@ const StyledLayout = styled.div<Partial<Props>>`
         return 'initial'
     }
   }};
+
+  ${(props) => {
+    if (!props.overflow) {
+      return ''
+    }
+
+    const rules = props.overflow.split(';')
+    switch (rules.length) {
+      case 1:
+        return `overflow: ${rules.join()};`
+      case 2:
+        return `overflow-${rules.join('')};`
+      case 3:
+        rules.pop()
+        return rules.map((rule) => `overflow-${rule.trim()};`).join('')
+    }
+  }}
 
   ${(props) => {
     if (props.border) {

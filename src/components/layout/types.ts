@@ -18,6 +18,12 @@ export type LineStyle =
   | 'inset'
   | 'outset'
 
+export type OverFlowValues = 'auto' | 'hidden' | 'overlay' | 'visible'
+export type OverFlow =
+  | OverFlowValues
+  | `${'x' | 'y'}: ${OverFlowValues};`
+  | `x: ${OverFlowValues}; y: ${OverFlowValues};`
+
 export type LineWidth = SizeKey | 'thin' | 'medium' | 'thick'
 export type LineColor = string
 
