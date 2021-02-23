@@ -3,10 +3,12 @@
   "description": "A design system named after my cat",
   "version": "0.0.1",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve",
+    "build:themes": "node ./src/scripts/json-to-ts.js",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write **/*.{js,ts,tsx}",
     "lint": "eslint . --ext ts --ext tsx --ext js"

@@ -12,17 +12,22 @@ export type Size = {
 
 export type ColorThemeKey = keyof ColorTheme
 
-export type ColorTheme = {
-  black: string
-  white: string
-  grays: Color
-  primary: Color
-  secondary: Color
-  tertiary: Color
-  quaternary: Color
-}
-
 export type Theme = {
   color: ColorTheme
   size: Size
+}
+
+export interface ColorTheme {
+  brand: Record<
+    string,
+    string | Record<ColorKey, string> | Record<string, string>
+  >
+  semantic: Record<
+    string,
+    string | Record<ColorKey, string> | Record<string, string>
+  >
+  layout: Record<
+    string,
+    string | Record<ColorKey, string> | Record<string, string>
+  >
 }
