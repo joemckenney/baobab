@@ -16,9 +16,9 @@ readdirSync(themes)
       writeFileSync(
         `./src/themes/${themeName}/colors.ts`,
         prettier.format(
-          `export type Color = \n${Object.keys(dotNotation(colors))
-            .map((key) => `  | '${key}'`)
-            .join('\n')}`,
+          `export type Color = ${Object.keys(dotNotation(colors))
+            .map((key) => `| '${key}'`)
+            .join('')}`,
           { parser: 'typescript', ...options }
         )
       )
