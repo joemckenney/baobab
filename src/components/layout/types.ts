@@ -1,4 +1,6 @@
-import { ColorTheme, ColorKey, SizeKey } from '../../theme/types'
+import { SizeKey } from '../../theme/types'
+
+import { Color } from '../../themes/high-contrast/colors'
 
 export type FourDimensionalSizeProperty =
   | `${SizeKey}`
@@ -6,17 +8,7 @@ export type FourDimensionalSizeProperty =
   | `${SizeKey},${SizeKey},${SizeKey}`
   | `${SizeKey},${SizeKey},${SizeKey},${SizeKey}`
 
-export type LineStyle =
-  | 'none'
-  | 'hidden'
-  | 'dotted'
-  | 'dashed'
-  | 'solid'
-  | 'double'
-  | 'groove'
-  | 'ridge'
-  | 'inset'
-  | 'outset'
+export type LineStyle = 'none' | 'solid'
 
 export type OverFlowValues = 'auto' | 'hidden' | 'overlay' | 'visible'
 export type OverFlow =
@@ -24,14 +16,13 @@ export type OverFlow =
   | `${'x' | 'y'}: ${OverFlowValues};`
   | `x: ${OverFlowValues}; y: ${OverFlowValues};`
 
-export type LineWidth = SizeKey | 'thin' | 'medium' | 'thick'
-export type LineColor = string
+export type LineWidth = SizeKey
 
 export type BorderStyle =
   | `${LineStyle}`
   | `${LineWidth} ${LineStyle}`
-  | `${LineStyle} ${keyof ColorTheme}.${ColorKey}`
-  | `${LineWidth} ${LineStyle} ${keyof ColorTheme}.${ColorKey}`
+  | `${LineStyle} ${Color}`
+  | `${LineWidth} ${LineStyle} ${Color}`
 
 export interface BorderProps {
   border?: BorderStyle
