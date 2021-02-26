@@ -19,24 +19,24 @@ export interface Layout {
 }
 
 export interface Blacks {
-  '100': string
-  '200': string
-  '300': string
+  100: string
+  200: string
+  300: string
 }
 
 export interface Grays {
-  '100': string
-  '200': string
-  '300': string
-  '400': string
-  '500': string
-  '600': string
-  '700': string
+  100: string
+  200: string
+  300: string
+  400: string
+  500: string
+  600: string
+  700: string
 }
 
 export interface Whites {
-  '100': string
-  '200': string
+  100: string
+  200: string
 }
 
 export interface Semantic {
@@ -45,7 +45,41 @@ export interface Semantic {
   warning: string
 }
 
-export const theme = {
+export const brand: Brand = {
+  'dark-liver': '#524948',
+  'cyber-grape': '#57467b',
+  'cadet-blue': '#7cb4b8',
+  aquamarine: '#70f8ba',
+  'bitter-lime': '#cafe48',
+}
+
+export const semantic: Semantic = {
+  success: '#88c459',
+  error: '#f5414f',
+  warning: '#ffd137',
+}
+
+export const layout: Layout = {
+  grays: {
+    100: '#f4f8fd',
+    200: '#e5ecf3',
+    300: '#cfd9e3',
+    400: '#a0acb8',
+    500: '#6c7680',
+    600: '#444d56',
+    700: '#24292e',
+  },
+  blacks: { 100: '#232B2B', 200: '#0e1111', 300: '#000000' },
+  whites: { 100: '#FFFFFF', 200: '#F5F5F5' },
+}
+
+export const color: Colors = {
+  brand,
+  semantic,
+  layout,
+}
+
+export const flattendColor = {
   'brand.dark-liver': '#524948',
   'brand.cyber-grape': '#57467b',
   'brand.cadet-blue': '#7cb4b8',
@@ -68,24 +102,4 @@ export const theme = {
   'layout.whites.200': '#F5F5F5',
 }
 
-export type Color =
-  | 'brand.dark-liver'
-  | 'brand.cyber-grape'
-  | 'brand.cadet-blue'
-  | 'brand.aquamarine'
-  | 'brand.bitter-lime'
-  | 'semantic.success'
-  | 'semantic.error'
-  | 'semantic.warning'
-  | 'layout.grays.100'
-  | 'layout.grays.200'
-  | 'layout.grays.300'
-  | 'layout.grays.400'
-  | 'layout.grays.500'
-  | 'layout.grays.600'
-  | 'layout.grays.700'
-  | 'layout.blacks.100'
-  | 'layout.blacks.200'
-  | 'layout.blacks.300'
-  | 'layout.whites.100'
-  | 'layout.whites.200'
+export type Color = keyof typeof flattendColor

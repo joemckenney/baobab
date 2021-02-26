@@ -1,12 +1,12 @@
-import { SizeKey } from '../../theme/types'
+import { Spacing, Color } from '../../theme/types'
 
-import { Color } from '../../themes/high-contrast/colors'
+type Size = keyof Spacing
 
 export type FourDimensionalSizeProperty =
-  | `${SizeKey}`
-  | `${SizeKey},${SizeKey}`
-  | `${SizeKey},${SizeKey},${SizeKey}`
-  | `${SizeKey},${SizeKey},${SizeKey},${SizeKey}`
+  | `${Size}`
+  | `${Size},${Size}`
+  | `${Size},${Size},${Size}`
+  | `${Size},${Size},${Size},${Size}`
 
 export type LineStyle = 'none' | 'solid'
 
@@ -16,7 +16,7 @@ export type OverFlow =
   | `${'x' | 'y'}: ${OverFlowValues};`
   | `x: ${OverFlowValues}; y: ${OverFlowValues};`
 
-export type LineWidth = SizeKey
+export type LineWidth = Size
 
 export type BorderStyle =
   | `${LineStyle}`
